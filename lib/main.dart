@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_dashboard/app_colors.dart';
+
+import 'navigation_rail.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,8 +34,15 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color(0xFF151423),
+      backgroundColor: AppColors.containerFill,
+      body: Row(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            width: 100,
+            child: MainNavigationRail(),
+          ),
+        ],
       ),
     );
   }
