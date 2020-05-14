@@ -12,6 +12,8 @@ class AppColors {
 
   static const buttonHover = Color(0xFF232239);
 
+  static const description = Color(0xFFBDDAFF);
+
   static const activeLineGradients = [
     Color(0xFF1A91FA),
     Color(0xFF1589F8),
