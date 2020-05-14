@@ -30,3 +30,5 @@ flutter:
     - assets/icons/logout.png
     - assets/icons/security.png
     - assets/icons/user_group.png
+    - assets/icons/cloud.png
+    - assets/images/welcome_background.png

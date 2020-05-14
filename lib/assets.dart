@@ -8,4 +8,7 @@ class Assets {
   static const logoutPng = 'assets/icons/logout.png';
   static const securityPng = 'assets/icons/security.png';
   static const usersPng = 'assets/icons/user_group.png';
+  static const cloudPng = 'assets/icons/cloud.png';
+
+  static const welcomeBackground = 'assets/images/welcome_background.png';
 }
