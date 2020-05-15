@@ -1,35 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/assets.dart';
-import 'package:smart_home_dashboard/hand_cursor_widget.dart';
-import 'package:smart_home_dashboard/strings.dart';
-
-import 'app_colors.dart';
-import 'container.dart';
-import 'vertical_spacer.dart';
-
-class MiddleSection extends StatefulWidget {
-  MiddleSection({Key key}) : super(key: key);
-
-  @override
-  _MiddleSectionState createState() => _MiddleSectionState();
-}
-
-class _MiddleSectionState extends State<MiddleSection> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SearchBarWidget(),
-        VerticalSpacer(
-          space: 24.0,
-        ),
-        WelcomeCardWidget(),
-      ],
-    );
-  }
-}
+import 'package:smart_home_dashboard/common/common.dart';
+import 'package:smart_home_dashboard/constants/constant.dart';
 
 class WelcomeCardWidget extends StatelessWidget {
   const WelcomeCardWidget({Key key}) : super(key: key);
@@ -88,7 +59,7 @@ class WelcomeCardWidget extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    '+25${'\u2103'} ',
+                    '+25${'\u2103'}',
                     style: TextStyle(
                       color: AppColors.white,
                       fontSize: 22,
@@ -125,52 +96,6 @@ class WelcomeCardWidget extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class SearchBarWidget extends StatelessWidget {
-  const SearchBarWidget({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ContentContainer(
-      child: Row(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(
-              left: 8.0,
-            ),
-            child: Icon(
-              Icons.search,
-              color: AppColors.white,
-            ),
-          ),
-          Expanded(
-            child: HandCursor(
-              child: TextField(
-                style: TextStyle(
-                  color: AppColors.white,
-                ),
-                cursorColor: AppColors.white,
-                decoration: InputDecoration(
-                  border: InputBorder.none,
-                  errorBorder: InputBorder.none,
-                  enabledBorder: InputBorder.none,
-                  disabledBorder: InputBorder.none,
-                  contentPadding: EdgeInsets.fromLTRB(16, 8, 16, 8),
-                  hintText: Strings.search,
-                  hintStyle: TextStyle(
-                    color: Colors.white54,
-                    fontWeight: FontWeight.w300,
-                    fontSize: 13,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

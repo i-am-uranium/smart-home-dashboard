@@ -14,6 +14,11 @@ class AppColors {
 
   static const description = Color(0xFFBDDAFF);
 
+  static const switchActiveColor = Color(0xFF7A40F2);
+  static const switchTrackColor = Color(0xFF8A88B7);
+  static const switchContainerColor = Color(0xFF0077F4);
+  static const onSwitchContainerSelectedColor = Color(0xFFFA7D74);
+
   static const activeLineGradients = [
     Color(0xFF1A91FA),
     Color(0xFF1589F8),

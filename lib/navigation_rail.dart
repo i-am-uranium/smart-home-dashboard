@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/dimens.dart';
-import 'package:smart_home_dashboard/hand_cursor_widget.dart';
 
-import 'app_colors.dart';
-import 'assets.dart';
-import 'vertical_spacer.dart';
+import 'common/common.dart';
+import 'constants/constant.dart';
 
 class MainNavigationRail extends StatefulWidget {
   MainNavigationRail({Key key}) : super(key: key);
