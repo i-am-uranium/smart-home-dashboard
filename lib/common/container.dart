@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-
-import 'app_colors.dart';
+import 'package:smart_home_dashboard/constants/constant.dart';
 
 class ContentContainer extends StatelessWidget {
   const ContentContainer({
     @required this.child,
     this.borderRadius = 8.0,
+    this.color = AppColors.containerFill,
     Key key,
   }) : super(key: key);
   final Widget child;
   final double borderRadius;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors.containerFill,
+        color: color,
         borderRadius: BorderRadius.all(
           Radius.circular(borderRadius),
         ),

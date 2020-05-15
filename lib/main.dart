@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/app_colors.dart';
 
-import 'middle_sectioin.dart';
+import 'package:smart_home_dashboard/constants/app_colors.dart';
+
+import 'middle_section.dart';
 import 'navigation_rail.dart';
 
 void main() {
