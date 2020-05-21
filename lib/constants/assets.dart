@@ -11,6 +11,7 @@ class Assets {
   static const cloudPng = 'assets/icons/cloud.png';
   static const dropPng = 'assets/icons/drop.png';
   static const thermometerPng = 'assets/icons/thermometer.png';
+  static const rainDropPng = 'assets/icons/rain_drop.png';
 
   static const acActivePng = 'assets/icons/ac_active.png';
   static const acInActivePng = 'assets/icons/ac_inactive.png';
@@ -31,4 +32,6 @@ class Assets {
       'assets/icons/refrigerator_selected.png';
 
   static const welcomeBackground = 'assets/images/welcome_background.png';
+
+  static const controllerBackground = 'assets/images/controller.png';
 }

@@ -11,7 +11,7 @@ class WelcomeCardWidget extends StatelessWidget {
       borderRadius: 16.0,
       child: Container(
         width: MediaQuery.of(context).size.width * .6 - 100,
-        height: 220,
+        height: 180,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
@@ -23,8 +23,8 @@ class WelcomeCardWidget extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.only(
-            top: 24,
-            bottom: 24,
+            top: 16,
+            bottom: 16,
             left: 24,
           ),
           child: Column(
@@ -35,7 +35,7 @@ class WelcomeCardWidget extends StatelessWidget {
                 'Hi Jasica!',
                 style: TextStyle(
                   color: AppColors.white,
-                  fontSize: 32,
+                  fontSize: 28,
                   fontWeight: FontWeight.normal,
                   letterSpacing: 1.54,
                 ),
@@ -47,7 +47,7 @@ class WelcomeCardWidget extends StatelessWidget {
                 'Welcome Home! The air quality is good & Fresh you can go out today',
                 style: TextStyle(
                   color: AppColors.description,
-                  fontSize: 13,
+                  fontSize: 12,
                   fontWeight: FontWeight.normal,
                   letterSpacing: .64,
                   height: 1.4,
@@ -62,7 +62,7 @@ class WelcomeCardWidget extends StatelessWidget {
                     '+25${'\u2103'}',
                     style: TextStyle(
                       color: AppColors.white,
-                      fontSize: 22,
+                      fontSize: 20,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
@@ -78,7 +78,7 @@ class WelcomeCardWidget extends StatelessWidget {
                 'Outdoor temperature',
                 style: TextStyle(
                   color: AppColors.white,
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.normal,
                   letterSpacing: 1.54,
                 ),
@@ -88,7 +88,7 @@ class WelcomeCardWidget extends StatelessWidget {
                 'Fuzzy cloudy weather',
                 style: TextStyle(
                   color: AppColors.white,
-                  fontSize: 16,
+                  fontSize: 14,
                   fontWeight: FontWeight.normal,
                   letterSpacing: 1.54,
                 ),

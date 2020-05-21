@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smart_home_dashboard/common/common.dart';
 
 import 'package:smart_home_dashboard/constants/app_colors.dart';
 
@@ -61,18 +62,18 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class HorizontalSpacer extends StatelessWidget {
-  const HorizontalSpacer({
-    this.space = 16.0,
-    Key key,
-  }) : super(key: key);
+// class HorizontalSpacer extends StatelessWidget {
+//   const HorizontalSpacer({
+//     this.space = 16.0,
+//     Key key,
+//   }) : super(key: key);
 
-  final double space;
+//   final double space;
 
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: space,
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       width: space,
+//     );
+//   }
+// }

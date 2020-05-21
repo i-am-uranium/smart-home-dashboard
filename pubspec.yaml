@@ -13,7 +13,7 @@ dependencies:
     sdk: flutter
   universal_html: ^1.2.2
   flutter_icons: ^1.1.0
-  custom_switch_button: ^0.5.0
+  simple_animations: ^2.2.1
 
 dev_dependencies:
   flutter_test:
@@ -35,6 +35,7 @@ flutter:
     - assets/icons/cloud.png
     - assets/icons/drop.png
     - assets/icons/thermometer.png
+    - assets/icons/rain_drop.png
 
     - assets/icons/all_lights_active.png
     - assets/icons/all_lights_inactive.png
@@ -53,3 +54,4 @@ flutter:
     - assets/icons/flash_selected.png
 
     - assets/images/welcome_background.png
+    - assets/images/controller.png
