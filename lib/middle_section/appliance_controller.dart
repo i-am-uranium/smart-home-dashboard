@@ -8,17 +8,21 @@ class ApplianceControllerPainter extends CustomPainter {
   final double swapAngle;
   final List<Color> linearGradientColors;
   final List<double> stops;
+  double initialDegree = 5;
 
   ApplianceControllerPainter({
     @required this.linearGradientColors,
     @required this.stops,
     @required this.swapAngle,
   }) : assert(linearGradientColors.length == stops.length,
-            'linearGradientColors length must match stops length');
+            'linearGradientColors length must match stops length') {
+    initialDegree += swapAngle / _kInitialAngle;
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
     canvas.save();
+
     final paint = Paint();
     final center = Offset(0, 0);
     _addOuterDottedLines(paint, size, center, canvas);
@@ -204,6 +208,8 @@ class ApplianceControllerPainter extends CustomPainter {
     );
   }
 
+  double _kInitialAngle = 2 * pi / 40;
+
   void _addTexts(Canvas canvas, Size size) {
     final leftTextOffset = Offset(-size.width / 4.6 - 15, -10);
     canvas.drawParagraph(
@@ -220,6 +226,34 @@ class ApplianceControllerPainter extends CustomPainter {
     final bottomTextOffset = Offset(-15, size.width / 4.6 - 15);
     canvas.drawParagraph(
         _paragraph('35', AppColors.hotTemperature), bottomTextOffset);
+
+    _addTemperatureText(canvas, Offset(-32, -24));
+    _addTemperatureUnit(canvas, Offset(-20, 8));
+  }
+
+  void _addTemperatureUnit(Canvas canvas, Offset offset) {
+    final paragraphBuilder = ui.ParagraphBuilder(ui.ParagraphStyle());
+    paragraphBuilder.pushStyle(ui.TextStyle(
+      color: AppColors.roleTextColor,
+      fontSize: 11,
+      letterSpacing: .13,
+    ));
+    paragraphBuilder.addText('Celsius');
+    final paragraph = paragraphBuilder.build();
+    paragraph.layout(ui.ParagraphConstraints(width: 100));
+    canvas.drawParagraph(paragraph, offset);
+  }
+
+  void _addTemperatureText(Canvas canvas, Offset offset) {
+    final paragraphBuilder = ui.ParagraphBuilder(ui.ParagraphStyle());
+    paragraphBuilder.pushStyle(ui.TextStyle(
+      color: AppColors.white,
+      fontSize: 27,
+    ));
+    paragraphBuilder.addText('$initialDegree${'\u2103'}');
+    final paragraph = paragraphBuilder.build();
+    paragraph.layout(ui.ParagraphConstraints(width: 100));
+    canvas.drawParagraph(paragraph, offset);
   }
 
   ui.Paragraph _paragraph(String temperature, Color color) {

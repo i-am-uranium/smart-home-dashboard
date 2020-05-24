@@ -5,6 +5,7 @@ import 'package:smart_home_dashboard/constants/app_colors.dart';
 
 import 'middle_section.dart';
 import 'navigation_rail.dart';
+import 'right_section/right_section.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -37,12 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.containerFill,
+      backgroundColor: AppColors.mainFill,
       body: Row(
         children: [
           Container(
             height: MediaQuery.of(context).size.height,
             width: 100,
+            color: AppColors.mainFill,
             child: MainNavigationRail(),
           ),
           HorizontalSpacer(
@@ -51,29 +54,19 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width * .6 - 100,
-            padding: EdgeInsets.only(
-              top: 16,
-            ),
+            color: AppColors.mainFill,
+            padding: EdgeInsets.only(top: 16),
             child: MiddleSection(),
+          ),
+          Container(
+            color: AppColors.mainFill,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width * .4 - 32,
+            padding: EdgeInsets.only(top: 16, left: 16),
+            child: RightSection(),
           ),
         ],
       ),
     );
   }
 }
-
-// class HorizontalSpacer extends StatelessWidget {
-//   const HorizontalSpacer({
-//     this.space = 16.0,
-//     Key key,
-//   }) : super(key: key);
-
-//   final double space;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return SizedBox(
-//       width: space,
-//     );
-//   }
-// }

@@ -167,7 +167,7 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
                     icon: Padding(
                       padding: EdgeInsets.only(left: 16),
                       child: Icon(
-                        FontAwesome.chevron_down,
+                        SimpleLineIcons.arrow_down,
                         color: AppColors.white,
                         size: 16,
                       ),

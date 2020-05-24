@@ -36,22 +36,28 @@ flutter:
     - assets/icons/drop.png
     - assets/icons/thermometer.png
     - assets/icons/rain_drop.png
-
     - assets/icons/all_lights_active.png
     - assets/icons/all_lights_inactive.png
     - assets/icons/all_lights_selected.png
-
     - assets/icons/ac_active.png
     - assets/icons/ac_inactive.png
     - assets/icons/ac_selected.png
-
     - assets/icons/refrigerator_active.png
     - assets/icons/refrigerator_inactive.png
     - assets/icons/refrigerator_selected.png
-
     - assets/icons/flash_active.png
     - assets/icons/flash_inactive.png
     - assets/icons/flash_selected.png
-
+    - assets/icons/active_notifications.png
+    - assets/icons/female_profile_avatar.png
+    - assets/icons/notifications.png
+    - assets/icons/settings.png
+    - assets/icons/music.png
+    - assets/icons/router.png
+    - assets/icons/refrigerator.png
+    - assets/avatars/dad.png
+    - assets/avatars/jasica.png
+    - assets/avatars/mom.png
+    - assets/avatars/nariya.png
+    - assets/avatars/riya.png
     - assets/images/welcome_background.png
-    - assets/images/controller.png

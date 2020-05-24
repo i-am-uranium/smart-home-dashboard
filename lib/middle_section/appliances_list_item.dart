@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/common/scaled_switch.dart';
+import 'package:smart_home_dashboard/common/custom_switch.dart' as cs;
 import 'package:smart_home_dashboard/constants/constant.dart';
 
 class AppliancesListItem extends StatelessWidget {
@@ -40,7 +40,7 @@ class AppliancesListItem extends StatelessWidget {
         child: HandCursor(
           child: Material(
             color: selected
-                ? AppColors.switchContainerColor
+                ? AppColors.switchContainer
                 : AppColors.containerFill,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
@@ -57,7 +57,7 @@ class AppliancesListItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 16),
+                        padding: EdgeInsets.only(left: 16, top: 8),
                         child: Text(
                           value ? 'ON' : 'OFF',
                           style: TextStyle(
@@ -67,13 +67,23 @@ class AppliancesListItem extends StatelessWidget {
                           ),
                         ),
                       ),
-                      ScaledSwitch(
-                        value: value,
-                        activeColor: selected
-                            ? AppColors.onSwitchContainerSelectedColor
-                            : AppColors.switchActiveColor,
-                        trackColor: AppColors.switchTrackColor,
-                        onChanged: onStateChange,
+                      Padding(
+                        padding: EdgeInsets.only(top: 8, right: 16, bottom: 8),
+                        child: cs.Switch(
+                          value: value,
+                          activeTrackColor: selected
+                              ? AppColors.white
+                              : AppColors.switchActive,
+                          inActiveTrackColor: selected
+                              ? AppColors.white
+                              : AppColors.switchTrack,
+                          indicatorActiveColor: selected
+                              ? AppColors.selectedSwitchIndicatorActive
+                              : AppColors.white,
+                          indicatorInActiveColor:
+                              selected ? AppColors.grey : AppColors.white,
+                          onChanged: onStateChange,
+                        ),
                       ),
                     ],
                   ),

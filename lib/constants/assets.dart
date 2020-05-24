@@ -33,5 +33,18 @@ class Assets {
 
   static const welcomeBackground = 'assets/images/welcome_background.png';
 
-  static const controllerBackground = 'assets/images/controller.png';
+  static const activeNotificationsPng = 'assets/icons/active_notifications.png';
+  static const femaleProfileAvatarPng =
+      'assets/icons/female_profile_avatar.png';
+  static const notificationPng = 'assets/icons/notifications.png';
+  static const settingsPng = 'assets/icons/settings.png';
+  static const musicPng = 'assets/icons/music.png';
+  static const routerPng = 'assets/icons/router.png';
+  static const refrigeratorPng = 'assets/icons/refrigerator.png';
+
+  static const jasicaPng = 'assets/avatars/jasica.png';
+  static const nariyaPng = 'assets/avatars/nariya.png';
+  static const riyaPng = 'assets/avatars/riya.png';
+  static const dadPng = 'assets/avatars/dad.png';
+  static const momPng = 'assets/avatars/mom.png';
 }

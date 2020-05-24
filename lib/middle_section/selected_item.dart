@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/common/scaled_switch.dart';
+import 'package:smart_home_dashboard/common/custom_switch.dart' as cs;
 import 'package:smart_home_dashboard/constants/constant.dart';
 
 import 'appliance_controller.dart';
@@ -72,7 +72,7 @@ class _SelectedItemState extends State<SelectedItem> {
                         padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(18),
-                          color: AppColors.switchContainerColor,
+                          color: AppColors.switchContainer,
                         ),
                         child: Image.asset(
                           widget.icon,
@@ -93,10 +93,13 @@ class _SelectedItemState extends State<SelectedItem> {
                       ),
                     ],
                   ),
-                  ScaledSwitch(
+                  cs.Switch(
                     value: widget.itemOn,
-                    activeColor: AppColors.switchActiveColor,
-                    trackColor: AppColors.switchTrackColor,
+                    activeTrackColor: AppColors.white,
+                    inActiveTrackColor: AppColors.white,
+                    indicatorActiveColor:
+                        AppColors.selectedSwitchIndicatorActive,
+                    indicatorInActiveColor: AppColors.grey,
                     onChanged: widget.onItemStateChange,
                   ),
                 ],
@@ -139,7 +142,7 @@ class _SelectedItemState extends State<SelectedItem> {
                       icon: Center(
                         child: Icon(
                           FontAwesome.minus,
-                          color: AppColors.switchTrackColor,
+                          color: AppColors.switchTrack,
                           size: 16,
                         ),
                       ),
@@ -153,7 +156,7 @@ class _SelectedItemState extends State<SelectedItem> {
               bottom: (MediaQuery.of(context).size.height - 486) / 2 - 24,
               child: ContentContainer(
                 child: Material(
-                  color: AppColors.switchContainerColor,
+                  color: AppColors.switchContainer,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
                       8.0,
