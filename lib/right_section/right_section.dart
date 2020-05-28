@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 import 'package:smart_home_dashboard/common/common.dart';
@@ -8,6 +9,7 @@ import 'package:smart_home_dashboard/right_section/profile.dart';
 
 import 'device_filter.dart';
 import 'device_list.dart';
+import 'power_consumption_graph.dart';
 import 'profile_drop_down.dart';
 import 'right_arrow_icon_button.dart';
 import 'scaled_icon_button.dart';
@@ -105,15 +107,23 @@ class _RightSectionState extends State<RightSection> {
                   },
                 ),
               ),
-              VerticalSpacer(space: 16),
+              VerticalSpacer(space: 8),
               _membersSections,
-              VerticalSpacer(space: 16),
+              VerticalSpacer(space: 8),
               ProfileListWidget(
                 profiles: profiles,
                 onProfileSelect: (profile) {
                   print('Profile Selected: ${profile.firstName}');
                 },
               ),
+              VerticalSpacer(space: 8),
+              _powerCConsumptionsSection,
+              VerticalSpacer(space: 8),
+              PowerConsumptionGraph(
+                width: MediaQuery.of(context).size.width * .4,
+                height: MediaQuery.of(context).size.height - 586,
+              ),
+              VerticalSpacer(space: 16),
             ],
           ),
         ),
@@ -134,6 +144,24 @@ class _RightSectionState extends State<RightSection> {
         ),
         CustomIconButton(
           onClick: () => print('Members right arrow button clicked.'),
+        ),
+      ],
+    );
+  }
+
+  Widget get _powerCConsumptionsSection {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          'Power Consumed',
+          style: TextStyle(
+            fontSize: 22,
+            color: AppColors.white,
+          ),
+        ),
+        CustomIconButton(
+          onClick: () => print('Power consumed right arrow button clicked.'),
         ),
       ],
     );

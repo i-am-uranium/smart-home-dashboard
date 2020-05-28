@@ -40,7 +40,6 @@ class _DeviceCardState extends State<DeviceCard> {
                   color: AppColors.white,
                   height: 28,
                   width: 18,
-                  // fit: BoxFit.scaleDown,
                 ),
               ),
               Padding(
