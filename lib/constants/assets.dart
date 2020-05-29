@@ -41,6 +41,7 @@ class Assets {
   static const musicPng = 'assets/icons/music.png';
   static const routerPng = 'assets/icons/router.png';
   static const refrigeratorPng = 'assets/icons/refrigerator.png';
+  static const calenderPng = 'assets/icons/calender.png';
 
   static const jasicaPng = 'assets/avatars/jasica.png';
   static const nariyaPng = 'assets/avatars/nariya.png';

@@ -32,7 +32,7 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
                 top: 52,
               ),
               child: LineChart(
-                sampleData1(),
+                sampleElectricityData(),
               ),
             ),
             Positioned(
@@ -79,7 +79,7 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
     );
   }
 
-  LineChartData sampleData1() {
+  LineChartData sampleElectricityData() {
     return LineChartData(
       lineTouchData: LineTouchData(
         touchTooltipData: LineTouchTooltipData(

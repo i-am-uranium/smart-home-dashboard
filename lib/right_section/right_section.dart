@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 
 import 'package:smart_home_dashboard/common/common.dart';
 import 'package:smart_home_dashboard/constants/constant.dart';
@@ -160,8 +161,80 @@ class _RightSectionState extends State<RightSection> {
             color: AppColors.white,
           ),
         ),
-        CustomIconButton(
-          onClick: () => print('Power consumed right arrow button clicked.'),
+        Row(
+          children: [
+            ContentContainer(
+              borderRadius: 8.0,
+              child: Container(
+                width: 120,
+                height: 36,
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                ),
+                padding: EdgeInsets.only(left: 16, right: 8),
+                child: HandCursor(
+                  child: DropdownButton<String>(
+                    underline: SizedBox(),
+                    icon: Padding(
+                      padding: EdgeInsets.only(left: 16),
+                      child: Icon(
+                        SimpleLineIcons.arrow_down,
+                        color: AppColors.white,
+                        size: 12,
+                      ),
+                    ),
+                    elevation: 16,
+                    dropdownColor: AppColors.containerFill,
+                    style: TextStyle(
+                      color: AppColors.white,
+                    ),
+                    value: 'Month',
+                    items: ['Month', 'Week']
+                        .map(
+                          (value) => DropdownMenuItem(
+                            value: value,
+                            child: HandCursor(
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      right: 8,
+                                    ),
+                                    child: Image.asset(
+                                      Assets.calenderPng,
+                                      width: 16,
+                                      height: 16,
+                                      color: AppColors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    value,
+                                    style: TextStyle(
+                                      color: AppColors.white,
+                                      letterSpacing: .13,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        )
+                        .toList(),
+                    onChanged: (value) {
+                      print('Power consumed section drop down clicked: $value');
+                    },
+                  ),
+                ),
+              ),
+            ),
+            HorizontalSpacer(
+              space: 16,
+            ),
+            CustomIconButton(
+              onClick: () =>
+                  print('Power consumed right arrow button clicked.'),
+            ),
+          ],
         ),
       ],
     );
