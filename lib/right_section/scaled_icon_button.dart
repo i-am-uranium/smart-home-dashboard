@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+import '../common/common.dart';
+import '../constants/constant.dart';
 
 class ScaledIconButton extends StatelessWidget {
   const ScaledIconButton({
@@ -20,7 +20,7 @@ class ScaledIconButton extends StatelessWidget {
         color: AppColors.containerFill,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(
-            8.0,
+            8,
           ),
         ),
         child: HandCursor(

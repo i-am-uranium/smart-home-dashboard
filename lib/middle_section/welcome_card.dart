@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+import '../common/common.dart';
+import '../constants/constant.dart';
 
 class WelcomeCardWidget extends StatelessWidget {
   const WelcomeCardWidget({Key key}) : super(key: key);
@@ -8,11 +8,11 @@ class WelcomeCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContentContainer(
-      borderRadius: 16.0,
+      borderRadius: 16,
       child: Container(
         width: MediaQuery.of(context).size.width * .6 - 100,
         height: 180,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
               Assets.welcomeBackground,
@@ -22,7 +22,7 @@ class WelcomeCardWidget extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: 16,
             bottom: 16,
             left: 24,
@@ -31,7 +31,7 @@ class WelcomeCardWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Hi Jasica!',
                 style: TextStyle(
                   color: AppColors.white,
@@ -40,10 +40,10 @@ class WelcomeCardWidget extends StatelessWidget {
                   letterSpacing: 1.54,
                 ),
               ),
-              VerticalSpacer(
+              const VerticalSpacer(
                 space: 8,
               ),
-              Text(
+              const Text(
                 'Welcome Home! The air quality is good & Fresh you can go out today',
                 style: TextStyle(
                   color: AppColors.description,
@@ -53,12 +53,12 @@ class WelcomeCardWidget extends StatelessWidget {
                   height: 1.4,
                 ),
               ),
-              VerticalSpacer(
+              const VerticalSpacer(
                 space: 8,
               ),
               Row(
                 children: [
-                  Text(
+                  const Text(
                     '+25${'\u2103'}',
                     style: TextStyle(
                       color: AppColors.white,
@@ -73,8 +73,8 @@ class WelcomeCardWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              VerticalSpacer(space: 4),
-              Text(
+              const VerticalSpacer(space: 4),
+              const Text(
                 'Outdoor temperature',
                 style: TextStyle(
                   color: AppColors.white,
@@ -83,8 +83,8 @@ class WelcomeCardWidget extends StatelessWidget {
                   letterSpacing: 1.54,
                 ),
               ),
-              VerticalSpacer(space: 4),
-              Text(
+              const VerticalSpacer(space: 4),
+              const Text(
                 'Fuzzy cloudy weather',
                 style: TextStyle(
                   color: AppColors.white,

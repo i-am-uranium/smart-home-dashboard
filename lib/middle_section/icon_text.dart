@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+import '../common/common.dart';
+import '../constants/constant.dart';
 
 class IconWithText extends StatelessWidget {
   const IconWithText({
@@ -21,10 +21,10 @@ class IconWithText extends StatelessWidget {
           width: 20,
           height: 20,
         ),
-        HorizontalSpacer(space: 4),
+        const HorizontalSpacer(space: 4),
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             color: AppColors.white,
             fontSize: 18,
             fontWeight: FontWeight.normal,

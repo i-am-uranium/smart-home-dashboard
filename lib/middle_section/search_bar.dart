@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+import '../common/common.dart';
+import '../constants/constant.dart';
 
 import '../strings.dart';
 
@@ -12,9 +12,9 @@ class SearchBarWidget extends StatelessWidget {
     return ContentContainer(
       child: Row(
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(
-              left: 8.0,
+              left: 8,
             ),
             child: Icon(
               Icons.search,
@@ -23,7 +23,7 @@ class SearchBarWidget extends StatelessWidget {
           ),
           Expanded(
             child: HandCursor(
-              child: TextField(
+              child: const TextField(
                 style: TextStyle(
                   color: AppColors.white,
                 ),

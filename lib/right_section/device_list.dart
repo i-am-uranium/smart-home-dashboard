@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/model/device.dart';
+import '../model/device.dart';
 
 import 'device_card.dart';
 
 class DeviceListWidget extends StatefulWidget {
-  DeviceListWidget({
+  const DeviceListWidget({
     @required this.devices,
     this.onDeviceStateChange,
     Key key,
@@ -25,7 +25,7 @@ class _DeviceListWidgetState extends State<DeviceListWidget> {
       child: GridView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: widget.devices.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           childAspectRatio: 170 / 320,
           crossAxisCount: 2,
           crossAxisSpacing: 16,

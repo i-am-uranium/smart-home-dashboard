@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+import '../constants/constant.dart';
 
 class Profile {
-  final int id;
-  final String firstName;
-  final String lastName;
-  final String role;
-  final String avatar;
-  bool selected;
-
   Profile({
     @required this.id,
     @required this.firstName,
@@ -18,9 +11,16 @@ class Profile {
     this.selected = false,
   });
 
-  String get fullName => firstName + " " + lastName;
+  final int id;
+  final String firstName;
+  final String lastName;
+  final String role;
+  final String avatar;
+  bool selected;
 
-  static List<Profile> _profiles = [];
+  String get fullName => '$firstName $lastName';
+
+  static final List<Profile> _profiles = [];
   static List<Profile> get list => _profiles
     ..add(
       Profile(

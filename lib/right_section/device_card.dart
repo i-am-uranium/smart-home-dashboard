@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/common/custom_switch.dart' as cs;
-import 'package:smart_home_dashboard/constants/constant.dart';
-import 'package:smart_home_dashboard/model/device.dart';
+
+import '../common/common.dart';
+import '../common/custom_switch.dart' as cs;
+import '../constants/constant.dart';
+import '../model/device.dart';
 
 class DeviceCard extends StatefulWidget {
-  DeviceCard({
+  const DeviceCard({
     @required this.device,
     this.onDeviceActiveStateChange,
     Key key,
@@ -34,7 +35,7 @@ class _DeviceCardState extends State<DeviceCard> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 16, top: 16),
+                padding: const EdgeInsets.only(left: 16, top: 16),
                 child: Image.asset(
                   widget.device.icon,
                   color: AppColors.white,
@@ -43,16 +44,16 @@ class _DeviceCardState extends State<DeviceCard> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(right: 16, top: 16),
+                padding: const EdgeInsets.only(right: 16, top: 16),
                 child: Row(
                   children: [
                     Text(
                       widget.device.isActive ? 'ON' : 'OFF',
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColors.white,
                       ),
                     ),
-                    HorizontalSpacer(),
+                    const HorizontalSpacer(),
                     cs.Switch(
                       value: widget.device.isActive,
                       activeTrackColor: AppColors.white,
@@ -68,10 +69,10 @@ class _DeviceCardState extends State<DeviceCard> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(left: 16, bottom: 16),
+            padding: const EdgeInsets.only(left: 16, bottom: 16),
             child: Text(
               widget.device.name,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.white,
               ),
             ),

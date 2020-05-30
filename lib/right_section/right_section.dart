@@ -1,22 +1,20 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
-import 'package:smart_home_dashboard/model/device.dart';
-import 'package:smart_home_dashboard/model/profile.dart';
-import 'package:smart_home_dashboard/right_section/profile.dart';
-
+import '../common/common.dart';
+import '../constants/constant.dart';
+import '../model/device.dart';
+import '../model/profile.dart';
 import 'device_filter.dart';
 import 'device_list.dart';
 import 'power_consumption_graph.dart';
+import 'profile.dart';
 import 'profile_drop_down.dart';
 import 'right_arrow_icon_button.dart';
 import 'scaled_icon_button.dart';
 
 class RightSection extends StatefulWidget {
-  RightSection({Key key}) : super(key: key);
+  const RightSection({Key key}) : super(key: key);
 
   @override
   _RightSectionState createState() => _RightSectionState();
@@ -44,11 +42,11 @@ class _RightSectionState extends State<RightSection> {
             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     left: 32,
                   ),
                   child: ScaledIconButton(
-                    scale: 1.0,
+                    scale: 1,
                     icon: Assets.settingsPng,
                     onClick: () {
                       print('Setting button clicked');
@@ -56,7 +54,7 @@ class _RightSectionState extends State<RightSection> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 32),
+                  padding: const EdgeInsets.only(left: 32),
                   child: ScaledIconButton(
                     icon: Assets.activeNotificationsPng,
                     onClick: () {
@@ -86,11 +84,11 @@ class _RightSectionState extends State<RightSection> {
         Container(
           width: MediaQuery.of(context).size.width * .4,
           height: MediaQuery.of(context).size.height - 80,
-          margin: EdgeInsets.only(top: 16),
-          padding: EdgeInsets.only(top: 16, left: 32, right: 32),
+          margin: const EdgeInsets.only(top: 16),
+          padding: const EdgeInsets.only(top: 16, left: 32, right: 32),
           decoration: BoxDecoration(
             color: AppColors.rightSectionFill,
-            borderRadius: BorderRadius.only(
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20),
             ),
           ),
@@ -98,7 +96,7 @@ class _RightSectionState extends State<RightSection> {
             children: [
               _devicesSection,
               Padding(
-                padding: EdgeInsets.only(top: 16),
+                padding: const EdgeInsets.only(top: 16),
                 child: DeviceListWidget(
                   devices: devices,
                   onDeviceStateChange: (value, index) {
@@ -108,23 +106,23 @@ class _RightSectionState extends State<RightSection> {
                   },
                 ),
               ),
-              VerticalSpacer(space: 8),
+              const VerticalSpacer(space: 8),
               _membersSections,
-              VerticalSpacer(space: 8),
+              const VerticalSpacer(space: 8),
               ProfileListWidget(
                 profiles: profiles,
                 onProfileSelect: (profile) {
                   print('Profile Selected: ${profile.firstName}');
                 },
               ),
-              VerticalSpacer(space: 8),
+              const VerticalSpacer(space: 8),
               _powerCConsumptionsSection,
-              VerticalSpacer(space: 8),
+              const VerticalSpacer(space: 8),
               PowerConsumptionGraph(
                 width: MediaQuery.of(context).size.width * .4,
                 height: MediaQuery.of(context).size.height - 586,
               ),
-              VerticalSpacer(space: 16),
+              const VerticalSpacer(),
             ],
           ),
         ),
@@ -136,7 +134,7 @@ class _RightSectionState extends State<RightSection> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        const Text(
           'Members',
           style: TextStyle(
             fontSize: 22,
@@ -154,7 +152,7 @@ class _RightSectionState extends State<RightSection> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        const Text(
           'Power Consumed',
           style: TextStyle(
             fontSize: 22,
@@ -164,18 +162,15 @@ class _RightSectionState extends State<RightSection> {
         Row(
           children: [
             ContentContainer(
-              borderRadius: 8.0,
               child: Container(
                 width: 120,
                 height: 36,
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                ),
-                padding: EdgeInsets.only(left: 16, right: 8),
+                decoration: const BoxDecoration(),
+                padding: const EdgeInsets.only(left: 16, right: 8),
                 child: HandCursor(
                   child: DropdownButton<String>(
-                    underline: SizedBox(),
-                    icon: Padding(
+                    underline: const SizedBox(),
+                    icon: const Padding(
                       padding: EdgeInsets.only(left: 16),
                       child: Icon(
                         SimpleLineIcons.arrow_down,
@@ -185,7 +180,7 @@ class _RightSectionState extends State<RightSection> {
                     ),
                     elevation: 16,
                     dropdownColor: AppColors.containerFill,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.white,
                     ),
                     value: 'Month',
@@ -197,7 +192,7 @@ class _RightSectionState extends State<RightSection> {
                               child: Row(
                                 children: [
                                   Padding(
-                                    padding: EdgeInsets.only(
+                                    padding: const EdgeInsets.only(
                                       right: 8,
                                     ),
                                     child: Image.asset(
@@ -209,7 +204,7 @@ class _RightSectionState extends State<RightSection> {
                                   ),
                                   Text(
                                     value,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: AppColors.white,
                                       letterSpacing: .13,
                                     ),
@@ -227,7 +222,7 @@ class _RightSectionState extends State<RightSection> {
                 ),
               ),
             ),
-            HorizontalSpacer(
+            const HorizontalSpacer(
               space: 16,
             ),
             CustomIconButton(
@@ -244,7 +239,7 @@ class _RightSectionState extends State<RightSection> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(
+        const Text(
           'My Devices',
           style: TextStyle(
             fontSize: 22,
@@ -254,14 +249,14 @@ class _RightSectionState extends State<RightSection> {
         Row(
           children: [
             DeviceFilter(
-              filters: ['ON', 'OFF'],
+              filters: const ['ON', 'OFF'],
               initValue: initialDeviceFilter,
               onChange: (value) {
                 print('Device filter state change to: $value');
                 setState(() => initialDeviceFilter = value);
               },
             ),
-            HorizontalSpacer(
+            const HorizontalSpacer(
               space: 24,
             ),
             CustomIconButton(

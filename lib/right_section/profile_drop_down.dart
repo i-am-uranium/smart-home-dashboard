@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
-import 'package:smart_home_dashboard/model/profile.dart';
+
+import '../common/common.dart';
+import '../constants/constant.dart';
+import '../model/profile.dart';
 
 class SelectProfileWidget extends StatelessWidget {
-  SelectProfileWidget({
+  const SelectProfileWidget({
     @required this.profiles,
     Key key,
     this.onProfileChange,
@@ -15,13 +16,14 @@ class SelectProfileWidget extends StatelessWidget {
 
   final ValueChanged<int> onProfileChange;
 
+  @override
   Widget build(BuildContext context) {
-    Profile selectedProfile =
+    final Profile selectedProfile =
         profiles.firstWhere((profile) => profile.selected);
     return Row(
       children: [
         Padding(
-          padding: EdgeInsets.only(right: 24),
+          padding: const EdgeInsets.only(right: 24),
           child: Image.asset(
             selectedProfile.avatar,
             width: 40,
@@ -29,11 +31,11 @@ class SelectProfileWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 16),
+          padding: const EdgeInsets.only(right: 16),
           child: HandCursor(
             child: DropdownButton<int>(
-              underline: SizedBox(),
-              icon: Padding(
+              underline: const SizedBox(),
+              icon: const Padding(
                 padding: EdgeInsets.only(left: 16, right: 16),
                 child: Icon(
                   SimpleLineIcons.arrow_down,
@@ -43,7 +45,7 @@ class SelectProfileWidget extends StatelessWidget {
               ),
               elevation: 16,
               dropdownColor: AppColors.containerFill,
-              style: TextStyle(
+              style: const TextStyle(
                 color: AppColors.white,
               ),
               value: selectedProfile.id,
@@ -54,7 +56,7 @@ class SelectProfileWidget extends StatelessWidget {
                       child: HandCursor(
                         child: Text(
                           profile.fullName,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: AppColors.profileName,
                             letterSpacing: .15,
                           ),

@@ -3,25 +3,25 @@ import 'dart:math' as math;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/common/custom_switch.dart' as cs;
-import 'package:smart_home_dashboard/constants/constant.dart';
 
+import '../common/common.dart';
+import '../common/custom_switch.dart' as cs;
+import '../constants/constant.dart';
 import 'appliance_controller.dart';
 
 class SelectedItem extends StatefulWidget {
-  final String icon;
-  final String title;
-  final bool itemOn;
-  final ValueChanged<bool> onItemStateChange;
-
-  SelectedItem({
+  const SelectedItem({
     @required this.icon,
     @required this.title,
     @required this.itemOn,
     @required this.onItemStateChange,
     Key key,
   }) : super(key: key);
+
+  final String icon;
+  final String title;
+  final bool itemOn;
+  final ValueChanged<bool> onItemStateChange;
 
   @override
   _SelectedItemState createState() => _SelectedItemState();
@@ -30,22 +30,22 @@ class SelectedItem extends StatefulWidget {
 class _SelectedItemState extends State<SelectedItem> {
   static const double kInitialAngle = 2 * math.pi / 40;
   double swapAngle = 10 * kInitialAngle;
-  final double speed = 1.0;
+  final double speed = 1;
 
-  final List<Color> linearGradientColors = [
-    Color(0xFF889BFF),
-    Color(0xFF7DAEFF),
-    Color(0xFF75BCFF),
-    Color(0xFF65D6FF),
-    Color(0xFF9586FF),
-    Color(0xFF9F75FF),
-    Color(0xFFB85BE6),
-    Color(0xFFD35A9E),
-    Color(0xFFE25A76),
-    Color(0xFFF55945),
+  final List<Color> applianceControllerLinearGradientColors = [
+    const Color(0xFF889BFF),
+    const Color(0xFF7DAEFF),
+    const Color(0xFF75BCFF),
+    const Color(0xFF65D6FF),
+    const Color(0xFF9586FF),
+    const Color(0xFF9F75FF),
+    const Color(0xFFB85BE6),
+    const Color(0xFFD35A9E),
+    const Color(0xFFE25A76),
+    const Color(0xFFF55945),
   ];
 
-  final stops = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
+  final List<double> stops = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class _SelectedItemState extends State<SelectedItem> {
                       Container(
                         width: 36,
                         height: 36,
-                        padding: EdgeInsets.all(8),
+                        padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(18),
                           color: AppColors.switchContainer,
@@ -80,12 +80,12 @@ class _SelectedItemState extends State<SelectedItem> {
                           height: 24,
                         ),
                       ),
-                      HorizontalSpacer(
+                      const HorizontalSpacer(
                         space: 12,
                       ),
                       Text(
                         widget.title,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: AppColors.white,
                           fontSize: 16,
                           letterSpacing: .57,
@@ -109,10 +109,10 @@ class _SelectedItemState extends State<SelectedItem> {
               left: (MediaQuery.of(context).size.width * .6 - 100) / 2,
               top: (MediaQuery.of(context).size.height - 454) / 2,
               child: CustomPaint(
-                size: Size(500, 500),
+                size: const Size(500, 500),
                 painter: ApplianceControllerPainter(
                   swapAngle: swapAngle,
-                  linearGradientColors: linearGradientColors,
+                  linearGradientColors: applianceControllerLinearGradientColors,
                   stops: stops,
                 ),
               ),
@@ -125,7 +125,7 @@ class _SelectedItemState extends State<SelectedItem> {
                   color: AppColors.containerFill,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
-                      8.0,
+                      8,
                     ),
                   ),
                   child: HandCursor(
@@ -134,12 +134,13 @@ class _SelectedItemState extends State<SelectedItem> {
                       onPressed: () {
                         setState(() {
                           if (swapAngle > kInitialAngle) {
-                            linearGradientColors.shuffle(math.Random());
+                            applianceControllerLinearGradientColors
+                                .shuffle(math.Random());
                             swapAngle -= kInitialAngle;
                           }
                         });
                       },
-                      icon: Center(
+                      icon: const Center(
                         child: Icon(
                           FontAwesome.minus,
                           color: AppColors.switchTrack,
@@ -159,7 +160,7 @@ class _SelectedItemState extends State<SelectedItem> {
                   color: AppColors.switchContainer,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(
-                      8.0,
+                      8,
                     ),
                   ),
                   child: HandCursor(
@@ -168,12 +169,13 @@ class _SelectedItemState extends State<SelectedItem> {
                       onPressed: () {
                         setState(() {
                           if (swapAngle <= 2 * math.pi - kInitialAngle) {
-                            linearGradientColors.shuffle(math.Random());
+                            applianceControllerLinearGradientColors
+                                .shuffle(math.Random());
                             swapAngle += kInitialAngle;
                           }
                         });
                       },
-                      icon: Center(
+                      icon: const Center(
                         child: Icon(
                           FontAwesome.plus,
                           color: AppColors.white,

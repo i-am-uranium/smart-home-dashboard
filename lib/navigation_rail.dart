@@ -2,9 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'common/common.dart';
 import 'constants/constant.dart';
+import 'model/navigation_destination.dart';
+import 'strings.dart';
 
 class MainNavigationRail extends StatefulWidget {
-  MainNavigationRail({Key key}) : super(key: key);
+  const MainNavigationRail({
+    @required this.destinations,
+    this.onDestinationClick,
+    this.onLogoutButtonClick,
+    Key key,
+  }) : super(key: key);
+
+  final Function onLogoutButtonClick;
+  final ValueChanged<int> onDestinationClick;
+  final List<NavigationDestination> destinations;
 
   @override
   _MainNavigationRailState createState() => _MainNavigationRailState();
@@ -15,10 +26,10 @@ class _MainNavigationRailState extends State<MainNavigationRail> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Positioned(
+        const Positioned(
           top: Dimens.logoTopPosition,
           left: Dimens.logoLeftPosition,
-          child: const LogoWidget(),
+          child: LogoWidget(),
         ),
         Positioned(
           top: Dimens.navigationRailTopPosition,
@@ -29,70 +40,43 @@ class _MainNavigationRailState extends State<MainNavigationRail> {
             width: 100,
             decoration: BoxDecoration(
               color: AppColors.containerFill,
-              borderRadius: BorderRadius.only(
-                topRight: Radius.circular(16.0),
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(16),
               ),
               border: Border.all(
                 width: 1,
                 color: AppColors.containerBorder,
               ),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: AppColors.containerShadowLeft,
                   offset: Offset(-5, -5),
                   blurRadius: 12,
-                  spreadRadius: 0,
                 ),
                 BoxShadow(
                   color: AppColors.containerShadowLRight,
                   offset: Offset(6, 6),
                   blurRadius: 12,
-                  spreadRadius: 0,
                 ),
                 BoxShadow(
                   color: AppColors.containerShadowLeft,
-                  offset: Offset(0, 0),
                   blurRadius: 3,
-                  spreadRadius: 0,
                 ),
               ],
             ),
             child: Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 top: 40,
               ),
-              child: ListView(
-                children: [
-                  NavigationDestination(
-                    iconPath: Assets.homePng,
-                    isActive: true,
-                  ),
-                  VerticalSpacer(),
-                  NavigationDestination(
-                    iconPath: Assets.lampPng,
-                    isActive: false,
-                  ),
-                  VerticalSpacer(),
-                  NavigationDestination(
-                    iconPath: Assets.securityPng,
-                    isActive: false,
-                  ),
-                  VerticalSpacer(),
-                  NavigationDestination(
-                    iconPath: Assets.locationPng,
-                    isActive: false,
-                  ),
-                  VerticalSpacer(),
-                  NavigationDestination(
-                    iconPath: Assets.usersPng,
-                    isActive: false,
-                  ),
-                  VerticalSpacer(),
-                  NavigationDestination(
-                    iconPath: Assets.chartPng,
-                    isActive: false,
-                  ),
-                ],
+              child: ListView.builder(
+                itemCount: widget.destinations.length,
+                itemBuilder: (context, index) {
+                  final destination = widget.destinations[index];
+                  return NavigationItem(
+                    navigationDestination: destination,
+                    onClick: () => widget.onDestinationClick(index),
+                  );
+                },
               ),
             ),
           ),
@@ -100,8 +84,10 @@ class _MainNavigationRailState extends State<MainNavigationRail> {
         Positioned(
           left: 24,
           bottom: 36,
-          child: NavigationDestination(
-            iconPath: Assets.logoutPng,
+          child: LogoutButton(
+            icon: Assets.logoutPng,
+            onClick: widget.onLogoutButtonClick,
+            tooltip: Strings.logout,
           ),
         )
       ],
@@ -109,53 +95,105 @@ class _MainNavigationRailState extends State<MainNavigationRail> {
   }
 }
 
-class NavigationDestination extends StatelessWidget {
-  const NavigationDestination({
-    @required this.iconPath,
-    this.isActive = false,
+class LogoutButton extends StatelessWidget {
+  const LogoutButton({
+    @required this.icon,
     this.tooltip,
+    this.onClick,
     Key key,
   }) : super(key: key);
 
-  final String iconPath;
+  final String icon;
   final String tooltip;
-  final bool isActive;
+  final Function onClick;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Visibility(
-          visible: isActive,
-          child: VerticalLine(),
+    return HandCursor(
+      child: Material(
+        color: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
         ),
-        HandCursor(
-          child: Material(
-            color: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: Container(
-              width: 48,
-              height: 48,
-              child: IconButton(
-                hoverColor: AppColors.buttonHover,
-                onPressed: () {
-                  print('home button pressed');
-                },
-                icon: Image.asset(
-                  iconPath,
-                  width: Dimens.navigationRailIconWidth,
-                  height: Dimens.navigationRailIconHeight,
-                ),
-              ),
+        child: Container(
+          width: 48,
+          height: 48,
+          child: IconButton(
+            tooltip: tooltip,
+            hoverColor: AppColors.buttonHover,
+            onPressed: onClick,
+            icon: Image.asset(
+              icon,
+              width: Dimens.navigationRailIconWidth,
+              height: Dimens.navigationRailIconHeight,
             ),
           ),
         ),
-        SizedBox(
-          width: 4,
+      ),
+    );
+  }
+}
+
+class NavigationItem extends StatelessWidget {
+  const NavigationItem({
+    @required this.navigationDestination,
+    this.onClick,
+    Key key,
+  }) : super(key: key);
+  final Function onClick;
+  final NavigationDestination navigationDestination;
+
+  Widget _getIcon(bool active) {
+    if (active) {
+      return Image.asset(
+        navigationDestination.icon,
+        width: Dimens.navigationRailIconWidth,
+        height: Dimens.navigationRailIconHeight,
+      );
+    }
+    return Image.asset(
+      navigationDestination.icon,
+      width: Dimens.navigationRailIconWidth,
+      height: Dimens.navigationRailIconHeight,
+      color: AppColors.navigationRailInActiveIcon,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Visibility(
+              visible: navigationDestination.isActive,
+              child: const VerticalLine(),
+            ),
+            HandCursor(
+              child: Material(
+                color: Colors.transparent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
+                child: Container(
+                  width: 48,
+                  height: 48,
+                  child: IconButton(
+                    tooltip: navigationDestination.tooltip,
+                    hoverColor: AppColors.buttonHover,
+                    onPressed: onClick,
+                    icon: _getIcon(navigationDestination.isActive),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 4,
+            ),
+          ],
         ),
+        const VerticalSpacer(),
       ],
     );
   }
@@ -169,7 +207,7 @@ class VerticalLine extends StatelessWidget {
     return Container(
       width: 3,
       height: 48,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: AppColors.activeLineGradients,
           begin: Alignment.topCenter,

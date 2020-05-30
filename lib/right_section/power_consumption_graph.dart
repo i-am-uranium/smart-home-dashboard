@@ -1,13 +1,14 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/common/container.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+
+import '../common/container.dart';
+import '../constants/constant.dart';
 
 class PowerConsumptionGraph extends StatefulWidget {
-  PowerConsumptionGraph({
-    Key key,
+  const PowerConsumptionGraph({
     @required this.width,
     @required this.height,
+    Key key,
   }) : super(key: key);
   final double width;
   final double height;
@@ -27,7 +28,7 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 right: 24,
                 top: 52,
               ),
@@ -52,7 +53,7 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
                         activeColor: AppColors.hotTemperature,
                         hoverColor: Colors.transparent,
                       ),
-                      Text(
+                      const Text(
                         'Electricity Consumed',
                         style: TextStyle(
                           color: AppColors.white,
@@ -62,7 +63,7 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
                       ),
                     ],
                   ),
-                  Text(
+                  const Text(
                     '73% Spending',
                     style: TextStyle(
                       color: AppColors.hotTemperature,
@@ -85,7 +86,7 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
         touchTooltipData: LineTouchTooltipData(
           tooltipBgColor: Colors.blueGrey.withOpacity(0.8),
         ),
-        touchCallback: (LineTouchResponse touchResponse) {},
+        touchCallback: (touchResponse) {},
         handleBuiltInTouches: true,
       ),
       gridData: FlGridData(
@@ -189,8 +190,8 @@ class _PowerConsumptionGraphState extends State<PowerConsumptionGraph> {
         colors: [AppColors.hotTemperature.withOpacity(.1)],
         gradientColorStops: [.5, .2],
         show: true,
-        gradientFrom: Offset(2, 3),
-        gradientTo: Offset(0, 0),
+        gradientFrom: const Offset(2, 3),
+        gradientTo: const Offset(0, 0),
       ),
     );
 

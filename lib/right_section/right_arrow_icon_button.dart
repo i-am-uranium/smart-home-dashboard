@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+import '../common/common.dart';
+import '../constants/constant.dart';
 
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
@@ -19,14 +19,14 @@ class CustomIconButton extends StatelessWidget {
           color: AppColors.containerFill,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(
-              8.0,
+              8,
             ),
           ),
           child: HandCursor(
             child: IconButton(
               hoverColor: AppColors.buttonHover,
               onPressed: onClick,
-              icon: Center(
+              icon: const Center(
                 child: Icon(
                   SimpleLineIcons.arrow_right,
                   size: 16,

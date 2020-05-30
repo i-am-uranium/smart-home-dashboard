@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+import '../common/common.dart';
+import '../constants/constant.dart';
 
 class DeviceFilter extends StatelessWidget {
   const DeviceFilter({
@@ -18,18 +18,15 @@ class DeviceFilter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContentContainer(
-      borderRadius: 8.0,
       child: Container(
         width: 100,
         height: 36,
-        decoration: BoxDecoration(
-          shape: BoxShape.rectangle,
-        ),
-        padding: EdgeInsets.only(left: 16, right: 8),
+        decoration: const BoxDecoration(),
+        padding: const EdgeInsets.only(left: 16, right: 8),
         child: HandCursor(
           child: DropdownButton<String>(
-            underline: SizedBox(),
-            icon: Padding(
+            underline: const SizedBox(),
+            icon: const Padding(
               padding: EdgeInsets.only(left: 16),
               child: Icon(
                 SimpleLineIcons.arrow_down,
@@ -39,7 +36,7 @@ class DeviceFilter extends StatelessWidget {
             ),
             elevation: 16,
             dropdownColor: AppColors.containerFill,
-            style: TextStyle(
+            style: const TextStyle(
               color: AppColors.white,
             ),
             value: initValue,
@@ -50,7 +47,7 @@ class DeviceFilter extends StatelessWidget {
                     child: HandCursor(
                       child: Text(
                         filter.toUpperCase(),
-                        style: TextStyle(color: AppColors.white),
+                        style: const TextStyle(color: AppColors.white),
                       ),
                     ),
                   ),

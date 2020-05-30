@@ -2,16 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 class CustomSwitchButton extends StatefulWidget {
-  final bool value;
-  final Color indicatorActiveColor;
-  final Color indicatorInActiveColor;
-  final Color activeTrackColor;
-  final Color inActiveTrackColor;
-  final double width;
-  final Duration animationDuration;
-  final EdgeInsets indicatorPadding;
-  final ValueChanged<bool> onChanged;
-
   const CustomSwitchButton({
     @required this.activeTrackColor,
     @required this.value,
@@ -21,12 +11,24 @@ class CustomSwitchButton extends StatefulWidget {
     @required this.inActiveTrackColor,
     this.width = 32.0,
     this.onChanged,
-    this.indicatorPadding = const EdgeInsets.all(1.0),
-  })  : assert(animationDuration != null),
-        assert(indicatorInActiveColor != null),
-        assert(activeTrackColor != null),
-        assert(indicatorActiveColor != null),
-        assert(value != null);
+    this.indicatorPadding = const EdgeInsets.all(1),
+  })  : assert(animationDuration != null, 'Animation duration cannot be null'),
+        assert(indicatorInActiveColor != null,
+            'indicatorInActiveColor cannot be null'),
+        assert(activeTrackColor != null, 'activeTrackColor cannot be null'),
+        assert(indicatorActiveColor != null,
+            'indicatorActiveColor cannot be null'),
+        assert(value != null, 'value cannot be null');
+
+  final bool value;
+  final Color indicatorActiveColor;
+  final Color indicatorInActiveColor;
+  final Color activeTrackColor;
+  final Color inActiveTrackColor;
+  final double width;
+  final Duration animationDuration;
+  final EdgeInsets indicatorPadding;
+  final ValueChanged<bool> onChanged;
 
   @override
   _CustomSwitchButtonState createState() => _CustomSwitchButtonState();
@@ -90,17 +92,17 @@ class _CustomSwitchButtonState extends State<CustomSwitchButton> {
             Positioned(
               child: Padding(
                 padding: EdgeInsets.only(
-                  left: animation["paddingLeft"],
-                  right: animation["paddingRight"],
+                  left: animation['paddingLeft'],
+                  right: animation['paddingRight'],
                 ),
                 child: Container(
-                  decoration: _innerBoxDecoration(animation["color"]),
+                  decoration: _innerBoxDecoration(animation['color']),
                   width: indicatorWidth,
                   height: indicatorHeight,
                   child: Material(
                     color: Colors.transparent,
                     child: InkWell(
-                      customBorder: CircleBorder(
+                      customBorder: const CircleBorder(
                         side: BorderSide(
                           color: Colors.white,
                           width: 2,

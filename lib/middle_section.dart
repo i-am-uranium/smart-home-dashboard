@@ -9,7 +9,7 @@ import 'middle_section/search_bar.dart';
 import 'middle_section/welcome_card.dart';
 
 class MiddleSection extends StatefulWidget {
-  MiddleSection({Key key}) : super(key: key);
+  const MiddleSection({Key key}) : super(key: key);
 
   @override
   _MiddleSectionState createState() => _MiddleSectionState();
@@ -21,11 +21,11 @@ class _MiddleSectionState extends State<MiddleSection> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+      children: const [
         SearchBarWidget(),
-        VerticalSpacer(space: 24.0),
+        VerticalSpacer(space: 24),
         WelcomeCardWidget(),
-        VerticalSpacer(space: 16.0),
+        VerticalSpacer(),
         HomeSectionWidget(),
       ],
     );

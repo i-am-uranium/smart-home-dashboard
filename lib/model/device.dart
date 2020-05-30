@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+import '../constants/constant.dart';
 
 class Device {
-  final int id;
-  final String name;
-  bool isActive;
-  final LinearGradient linearGradient;
-  final String icon;
-
   Device({
     @required this.id,
     @required this.name,
@@ -16,7 +10,13 @@ class Device {
     @required this.icon,
   });
 
-  static List<Device> _devices = [];
+  final int id;
+  final String name;
+  bool isActive;
+  final LinearGradient linearGradient;
+  final String icon;
+
+  static final List<Device> _devices = [];
   static List<Device> get list => _devices
     ..add(
       Device(
@@ -24,7 +24,7 @@ class Device {
         name: 'Refrigerator',
         isActive: false,
         icon: Assets.refrigeratorPng,
-        linearGradient: LinearGradient(
+        linearGradient: const LinearGradient(
           colors: [
             AppColors.refrigeratorDeviceContainer,
             AppColors.refrigeratorDeviceContainer,
@@ -39,7 +39,7 @@ class Device {
         name: 'Music',
         isActive: false,
         icon: Assets.musicPng,
-        linearGradient: LinearGradient(
+        linearGradient: const LinearGradient(
           colors: AppColors.musicDeviceContainerGradient,
           stops: [0.0, 0.2, 0.4],
           begin: Alignment.topLeft,
@@ -53,11 +53,9 @@ class Device {
         name: 'Router',
         isActive: false,
         icon: Assets.routerPng,
-        linearGradient: LinearGradient(
+        linearGradient: const LinearGradient(
           colors: AppColors.routerDeviceContainerGradient,
           stops: [0.0, 0.1, 0.4],
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
         ),
       ),
     )
@@ -67,7 +65,7 @@ class Device {
         name: 'Lamps',
         isActive: false,
         icon: Assets.lampPng,
-        linearGradient: LinearGradient(
+        linearGradient: const LinearGradient(
           colors: AppColors.lampDeviceContainerGradient,
           stops: [0.0, 0.2, 0.4],
           begin: Alignment.topCenter,

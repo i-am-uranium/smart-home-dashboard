@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:smart_home_dashboard/middle_section/appliance.dart';
+import 'appliance.dart';
 
 import 'appliances_list_item.dart';
 
 class AppliancesList extends StatefulWidget {
-  AppliancesList({
+  const AppliancesList({
     @required this.appliances,
     this.onSelect,
     this.onApplianceStateChange,
@@ -28,7 +28,7 @@ class _AppliancesListState extends State<AppliancesList> {
       children: widget.appliances.map(
         (appliance) {
           return Padding(
-            padding: EdgeInsets.only(right: 24),
+            padding: const EdgeInsets.only(right: 24),
             child: AppliancesListItem(
               name: appliance.name,
               activeIcon: appliance.activeIcon,

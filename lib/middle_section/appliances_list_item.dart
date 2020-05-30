@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/common/custom_switch.dart' as cs;
-import 'package:smart_home_dashboard/constants/constant.dart';
+
+import '../common/common.dart';
+import '../common/custom_switch.dart' as cs;
+import '../constants/constant.dart';
 
 class AppliancesListItem extends StatelessWidget {
   const AppliancesListItem({
@@ -39,12 +40,11 @@ class AppliancesListItem extends StatelessWidget {
         height: 56,
         child: HandCursor(
           child: Material(
-            color: selected
-                ? AppColors.switchContainer
-                : AppColors.containerFill,
+            color:
+                selected ? AppColors.switchContainer : AppColors.containerFill,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
-                16.0,
+                16,
               ),
             ),
             child: InkWell(
@@ -57,10 +57,10 @@ class AppliancesListItem extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 16, top: 8),
+                        padding: const EdgeInsets.only(left: 16, top: 8),
                         child: Text(
                           value ? 'ON' : 'OFF',
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: AppColors.white,
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -68,7 +68,8 @@ class AppliancesListItem extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 8, right: 16, bottom: 8),
+                        padding:
+                            const EdgeInsets.only(top: 8, right: 16, bottom: 8),
                         child: cs.Switch(
                           value: value,
                           activeTrackColor: selected
@@ -88,7 +89,7 @@ class AppliancesListItem extends StatelessWidget {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 16),
+                    padding: const EdgeInsets.only(left: 16),
                     child: Image.asset(
                       selected
                           ? selectedIcon
@@ -98,14 +99,14 @@ class AppliancesListItem extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 16,
                       top: 16,
                       bottom: 16,
                     ),
                     child: Text(
                       name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: AppColors.white,
                         fontSize: 12,
                         fontWeight: FontWeight.w600,

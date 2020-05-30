@@ -24,12 +24,14 @@ class AppColors {
   static const coolTemperature = Color(0xFF65D6FF);
   static const warmTemperature = Color(0xFFF56A58);
   static const hotTemperature = Color(0xFFF94E39);
-  static final rightSectionFill = Color(0xFF000000).withOpacity(.10);
+  static final Color rightSectionFill =
+      const Color(0xFF000000).withOpacity(.10);
   static const refrigeratorDeviceContainer = Color(0xFF7A40F2);
   static const refrigeratorDeviceSwitchIndicator = Color(0xFF7230F9);
   static const lampDeviceSwitchActiveIndicator = Color(0xFF2BAA5D);
   static const profileName = Color(0xFFA0ACBF);
   static const roleTextColor = Color(0xFF8A88B7);
+  static const navigationRailInActiveIcon = Color(0xFF8290B0);
 
   static const routerDeviceContainerGradient = [
     Color(0xFF00A4FA),

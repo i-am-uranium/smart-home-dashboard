@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
-import 'package:smart_home_dashboard/common/common.dart';
-import 'package:smart_home_dashboard/common/vertical_spacer.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
-import 'package:smart_home_dashboard/middle_section/appliance.dart';
-import 'package:smart_home_dashboard/middle_section/appliances_list.dart';
-import 'package:smart_home_dashboard/middle_section/selected_item.dart';
-
+import '../common/common.dart';
+import '../common/vertical_spacer.dart';
+import '../constants/constant.dart';
+import 'appliance.dart';
+import 'appliances_list.dart';
 import 'icon_text.dart';
+import 'selected_item.dart';
 
 class HomeSectionWidget extends StatefulWidget {
   const HomeSectionWidget({Key key}) : super(key: key);
@@ -22,51 +21,44 @@ class HomeSectionWidget extends StatefulWidget {
 class _HomeSectionWidgetState extends State<HomeSectionWidget> {
   String currentRoom = 'Living Room';
 
-  static final List<Appliance> appliances = []
-    ..add(
-      Appliance(
-        1,
-        name: 'Refrigerator',
-        activeIcon: Assets.refrigeratorActivePng,
-        inActiveIcon: Assets.refrigeratorInActivePng,
-        selectedIcon: Assets.refrigeratorSelectedPng,
-        isActive: true,
-        selected: true,
-      ),
+  static final List<Appliance> appliances = [
+    Appliance(
+      1,
+      name: 'Refrigerator',
+      activeIcon: Assets.refrigeratorActivePng,
+      inActiveIcon: Assets.refrigeratorInActivePng,
+      selectedIcon: Assets.refrigeratorSelectedPng,
+      isActive: true,
+      selected: true,
+    ),
+    Appliance(
+      2,
+      name: 'Temperature',
+      activeIcon: Assets.flashActivePng,
+      inActiveIcon: Assets.flashInActivePng,
+      selectedIcon: Assets.flashSelectedPng,
+      isActive: false,
+      selected: false,
+    ),
+    Appliance(
+      3,
+      name: 'Air Conditioner',
+      activeIcon: Assets.acActivePng,
+      inActiveIcon: Assets.acInActivePng,
+      selectedIcon: Assets.acSelectedPng,
+      isActive: false,
+      selected: false,
+    ),
+    Appliance(
+      4,
+      name: 'Lights',
+      activeIcon: Assets.allLightsActivePng,
+      inActiveIcon: Assets.allLightsInActivePng,
+      selectedIcon: Assets.allLightsSelectedPng,
+      isActive: false,
+      selected: false,
     )
-    ..add(
-      Appliance(
-        2,
-        name: 'Temperature',
-        activeIcon: Assets.flashActivePng,
-        inActiveIcon: Assets.flashInActivePng,
-        selectedIcon: Assets.flashSelectedPng,
-        isActive: false,
-        selected: false,
-      ),
-    )
-    ..add(
-      Appliance(
-        3,
-        name: 'Air Conditioner',
-        activeIcon: Assets.acActivePng,
-        inActiveIcon: Assets.acInActivePng,
-        selectedIcon: Assets.acSelectedPng,
-        isActive: false,
-        selected: false,
-      ),
-    )
-    ..add(
-      Appliance(
-        4,
-        name: 'Lights',
-        activeIcon: Assets.allLightsActivePng,
-        inActiveIcon: Assets.allLightsInActivePng,
-        selectedIcon: Assets.allLightsSelectedPng,
-        isActive: false,
-        selected: false,
-      ),
-    );
+  ];
   Appliance sleetedAppliance = appliances.first;
 
   @override
@@ -77,15 +69,13 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
       child: Column(
         children: [
           _selectRoomWidget,
-          VerticalSpacer(space: 16),
+          const VerticalSpacer(),
           SizedBox(
             width: MediaQuery.of(context).size.width * .6 - 100,
             height: 117,
             child: _electronicAppliances,
           ),
-          VerticalSpacer(
-            space: 16,
-          ),
+          const VerticalSpacer(),
           SelectedItem(
             icon: sleetedAppliance.selectedIcon,
             title: sleetedAppliance.name,
@@ -114,7 +104,7 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
         });
       },
       onApplianceStateChange: (appliance, state) {
-        int id = appliance.id;
+        final int id = appliance.id;
         final Appliance stateChangedAppliances =
             appliances.firstWhere((element) => element.id == id);
         setState(() {
@@ -129,8 +119,8 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          'Scarlett\'s Home',
+        const Text(
+          "Scarlett's Home",
           style: TextStyle(
             color: AppColors.white,
             fontSize: 18,
@@ -142,29 +132,27 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            IconWithText(
+            const IconWithText(
               icon: Assets.dropPng,
               label: '35%',
             ),
-            HorizontalSpacer(space: 16),
-            IconWithText(
+            const HorizontalSpacer(space: 16),
+            const IconWithText(
               icon: Assets.thermometerPng,
               label: '+25${'\u2103'}',
             ),
-            HorizontalSpacer(space: 16),
+            const HorizontalSpacer(space: 16),
             ContentContainer(
-              borderRadius: 8.0,
+              borderRadius: 8,
               child: Container(
                 width: 150,
                 height: 36,
-                decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
-                ),
-                padding: EdgeInsets.only(left: 16, right: 8),
+                decoration: const BoxDecoration(),
+                padding: const EdgeInsets.only(left: 16, right: 8),
                 child: HandCursor(
                   child: DropdownButton<String>(
-                    underline: SizedBox(),
-                    icon: Padding(
+                    underline: const SizedBox(),
+                    icon: const Padding(
                       padding: EdgeInsets.only(left: 16),
                       child: Icon(
                         SimpleLineIcons.arrow_down,
@@ -174,7 +162,7 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
                     ),
                     elevation: 16,
                     dropdownColor: AppColors.containerFill,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.white,
                     ),
                     value: currentRoom,
@@ -182,7 +170,7 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
                       DropdownMenuItem(
                         value: 'Bedroom',
                         child: HandCursor(
-                          child: Text(
+                          child: const Text(
                             'Bedroom',
                             style: TextStyle(color: AppColors.white),
                           ),
@@ -191,13 +179,13 @@ class _HomeSectionWidgetState extends State<HomeSectionWidget> {
                       DropdownMenuItem(
                         value: 'Kitchen',
                         child: HandCursor(
-                          child: Text('Kitchen'),
+                          child: const Text('Kitchen'),
                         ),
                       ),
                       DropdownMenuItem(
                         value: 'Living Room',
                         child: HandCursor(
-                          child: Text('Living Room'),
+                          child: const Text('Living Room'),
                         ),
                       ),
                     ],

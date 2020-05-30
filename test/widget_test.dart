@@ -11,7 +11,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:smart_home_dashboard/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('Counter increments smoke test', (tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 

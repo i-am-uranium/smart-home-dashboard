@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_home_dashboard/constants/constant.dart';
+import '../constants/constant.dart';
 
 class ContentContainer extends StatelessWidget {
   const ContentContainer({
@@ -24,24 +24,20 @@ class ContentContainer extends StatelessWidget {
           width: 1,
           color: AppColors.containerBorder,
         ),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: AppColors.containerShadowLeft,
             offset: Offset(-5, -5),
             blurRadius: 12,
-            spreadRadius: 0,
           ),
           BoxShadow(
             color: AppColors.containerShadowLRight,
             offset: Offset(6, 6),
             blurRadius: 12,
-            spreadRadius: 0,
           ),
           BoxShadow(
             color: AppColors.containerShadowLeft,
-            offset: Offset(0, 0),
             blurRadius: 3,
-            spreadRadius: 0,
           ),
         ],
       ),
